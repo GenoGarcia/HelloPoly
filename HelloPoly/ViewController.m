@@ -24,4 +24,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)stepper:(id)sender {
+}
+- (IBAction)buttonPressed:(id)sender {
+}
 @end
