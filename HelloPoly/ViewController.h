@@ -16,6 +16,6 @@
 - (IBAction)stepper:(UIStepper *)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
-- (IBAction)buttonPressed:(id)sender;
+
 @end
 
