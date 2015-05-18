@@ -12,6 +12,11 @@
 @property (strong, nonatomic) IBOutlet UIStepper *stepper;
 @property (strong, nonatomic) IBOutlet UILabel *result;
 - (IBAction)stepper:(UIStepper *)sender;
-
+@property (weak, nonatomic) IBOutlet UILabel *label;
+- (IBAction)buttonPressed:(id)sender {
+    NSString *title = [sender titleForState:UIControlStateNormal];
+    NSString *plainText = [NSString stringWithFormat:@"%@ button pressed.", title];
+    _statusLabel.text = plainText;
+}
 @end
 
