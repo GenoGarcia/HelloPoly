@@ -14,52 +14,33 @@
 
 @implementation ViewController
 
+static NSArray * types; 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    [super viewDidLoad];
     
-    	//Set the stepper to behave like we want
-    _buttonPressedmaximumValue = fmax;
-    _buttonPressed.minimumValue = fmin;
-    _buttonPressed.stepValue = 1.0;
+	types = @[@"Triangle", @"Quadrilateral", @"Pentagon", @"Hexagon", @"Heptagon", @"Octagon", @"Nonigon", @"Decagon", @"Hendecagon", @"Dodecagon"];
     
-    	//Initialize some variables
-    	_buttonPressed.value = 5;
-    	nSides = 5;
-    
-    	names = @[@"Triangle", @"Quadrilateral", @"Pentagon", @"Hexagon", @"Heptagon", @"Octagon", @"Nonigon", @"Decagon", @"Hendecagon", @"Dodecagon"];
-    
-    	[self update];
+	[self update];
     
     
-    }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)stepper:(id)sender {
-}
-- (IBAction)buttonPressed:(id)sender {
+- (IBAction)stepper:(UIStepper *)sender {
+	[self update];
 }
 
-//Action handler for the buttons
-- (IBAction)buttonPressed:(id)sender:(UIButton *)sender forEvent:(UIEvent *)event
-{
-    	//Change nSides
-    	nSides = _buttonPressed.value;
-    
-    	//Update the label and drawing
-    	[self update];
-    
-    }
+- (float)calcAngles {
+	float interiorAngles = (180 * (_stepper.value - 2)) / _stepper.value;
+	
+	return interiorAngles;
+}
 
 - (void)update
 {
-    	float angles = [self calcAngles: nSides];
+	float angles = [self calcAngles];
     
-    	//float angles = calcAngles(nSides);
-    	[_resultsLabel setText:[NSString stringWithFormat:@"Sides: %d | %@\nAngles: %.0f° | %.2fr", nSides, names[nSides - 3], angles, angles * M_PI / 180]];
+	//float angles = calcAngles(nSides);
+	[_result setText:[NSString stringWithFormat:@"Sides: %f\n%@\nAngles: %.0f° or %.2fr", _stepper.value, types[(int)_stepper.value - 3], angles, angles * M_PI / 180]];
+}
 @end
