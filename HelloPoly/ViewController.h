@@ -14,8 +14,5 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *result;
 - (IBAction)stepper:(UIStepper *)sender;
-
-@property (weak, nonatomic) IBOutlet UILabel *label;
-
 @end
 
