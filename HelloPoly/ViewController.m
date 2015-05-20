@@ -20,10 +20,7 @@ static NSArray * types;
     [super viewDidLoad];
     
 	types = @[@"Triangle", @"Quadrilateral", @"Pentagon", @"Hexagon", @"Heptagon", @"Octagon", @"Nonigon", @"Decagon", @"Hendecagon", @"Dodecagon"];
-    
 	[self update];
-    
-    
 }
 
 - (IBAction)stepper:(UIStepper *)sender {
@@ -32,14 +29,12 @@ static NSArray * types;
 
 - (float)calcAngles {
 	float interiorAngles = (180 * (_stepper.value - 2)) / _stepper.value;
-	
 	return interiorAngles;
 }
-
 - (void)update
 {
 	float angles = [self calcAngles];
-    
+
 	//float angles = calcAngles(nSides);
 	[_result setText:[NSString stringWithFormat:@"Sides: %f\n%@\nAngles: %.0f° or %.2fr", _stepper.value, types[(int)_stepper.value - 3], angles, angles * M_PI / 180]];
 }
