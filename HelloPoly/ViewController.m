@@ -38,4 +38,9 @@ static NSArray * types;
 	//float angles = calcAngles(nSides);
 	[_result setText:[NSString stringWithFormat:@"Sides: %f\n%@\nAngles: %.0f° or %.2fr", _stepper.value, types[(int)_stepper.value - 3], angles, angles * M_PI / 180]];
 }
+
+//Page Orientation Handler
+-(NSUInteger) supportedInterfaceOrientations {
+    return (UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight | UIInterfaceOrientationMaskPortraitUpsideDown);
+}
 @end

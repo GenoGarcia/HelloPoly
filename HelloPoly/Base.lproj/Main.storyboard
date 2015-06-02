@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,20 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="69u-zR-yjD">
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minimumValue="3" maximumValue="12" translatesAutoresizingMaskIntoConstraints="NO" id="vx1-Ah-Sfc">
+                                <rect key="frame" x="113" y="281" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepper:" destination="vXZ-lx-hvc" eventType="valueChanged" id="bxW-qP-yYw"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="69u-zR-yjD">
                                 <rect key="frame" x="52" y="74" width="216" height="157"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minimumValue="3" maximumValue="12" translatesAutoresizingMaskIntoConstraints="NO" id="vx1-Ah-Sfc">
-                                <rect key="frame" x="113" y="239" width="94" height="29"/>
-                                <connections>
-                                    <action selector="stepper:" destination="vXZ-lx-hvc" eventType="valueChanged" id="bxW-qP-yYw"/>
-                                </connections>
-                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vx1-Ah-Sfc" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="0ro-J5-k2U"/>
+                            <constraint firstItem="vx1-Ah-Sfc" firstAttribute="top" secondItem="69u-zR-yjD" secondAttribute="bottom" constant="50" id="2he-kg-kZ0"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vx1-Ah-Sfc" secondAttribute="bottom" constant="170" id="ID6-Hd-O8R"/>
+                            <constraint firstItem="69u-zR-yjD" firstAttribute="centerX" secondItem="vx1-Ah-Sfc" secondAttribute="centerX" id="bQb-A9-wp7"/>
+                            <constraint firstItem="69u-zR-yjD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="36" id="lOQ-WL-0JI"/>
+                            <constraint firstItem="69u-zR-yjD" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="54" id="v7t-5h-l0A"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="result" destination="69u-zR-yjD" id="NgE-hq-5q2"/>
